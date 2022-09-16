@@ -11,7 +11,7 @@ class CompanyCRUDController extends Controller
 */
 public function index()
 {
-$data['companies'] = Company::orderBy('id','desc')->paginate(5);
+$data['companies'] = Company::orderBy('id')->paginate(5);
 return view('companies.index', $data);
 }
 /**
@@ -23,12 +23,7 @@ public function create()
 {
 return view('companies.create');
 }
-/**
-* Store a newly created resource in storage.
-*
-* @param  \Illuminate\Http\Request  $request
-* @return \Illuminate\Http\Response
-*/
+
 public function store(Request $request)
 {
 $request->validate([
